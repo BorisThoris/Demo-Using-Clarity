@@ -1,0 +1,42 @@
+.pageContainer {
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.657);
+
+  position: relative;
+
+  margin: auto;
+  margin-top: 20px;
+  padding: 2%;
+  border-radius: 2%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.titleDiv {
+  font-size: 50px;
+}
+
+.subtitleDiv {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.pageContent {
+  width: 1000px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.usersContainer {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: space-evenly;
+}

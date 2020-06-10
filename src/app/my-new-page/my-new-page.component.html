@@ -1,0 +1,40 @@
+<app-alert-comp *ngIf="alertOpen" [message]="parentMessage"></app-alert-comp>
+
+<ul class="clr-timeline" *ngIf="tempCircles">
+  <li
+    *ngFor="let circle of tempCircles; let idx = index"
+    class="clr-timeline-step"
+  >
+    <clr-icon
+      [attr.shape]="circle.status ? 'success-standard' : 'circle'"
+    ></clr-icon>
+    <div class="clr-timeline-step-body">
+      <span class="clr-timeline-step-title">Step {{ circle.step }}</span>
+      <span class="clr-timeline-step-description"
+        >{{ circle.description }}
+        <button
+          *ngIf="
+            ((idx === 0 && !circle.status) ||
+              (idx > 0 && tempCircles[idx - 1].status && !circle.status)) &&
+            circle.actionText !== ''
+          "
+          (click)="updateSingleCircle(idx)"
+          class="btn btn-sm hoverableButton"
+        >
+          {{ circle.actionText }}
+        </button>
+      </span>
+    </div>
+  </li>
+</ul>
+
+<ul class="clr-timeline">
+  <li class="clr-timeline-step">
+    <button
+      (click)="resetCircles()"
+      class="btn btn-sm resetStatesButton hoverableButton"
+    >
+      Clear Demo State *Includes Users*
+    </button>
+  </li>
+</ul>

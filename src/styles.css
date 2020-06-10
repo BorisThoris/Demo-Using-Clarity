@@ -1,1 +1,67 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  background-image: url("./assets/Sky.jpg");
+  background-size: 500px 250px;
+  animation: infinite-scrolling 35.5s linear infinite;
+
+  min-height: 100vh;
+  width: 100%;
+  height: auto;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.customHeaderButton {
+  cursor: initial !important;
+  opacity: 1;
+}
+
+.pageContainerStyle {
+  background-color: rgba(255, 250, 250, 0.774);
+
+  width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.customHeader {
+  padding-left: 1.5%;
+
+  align-items: center;
+}
+
+.hoverableButton {
+  transition: 1s;
+
+  margin: 0px !important;
+}
+
+.hoverableButton:hover {
+  transform: scale(1.15);
+  transition: 1s;
+}
+
+.demoContainer {
+  background-color: yellow;
+}
+
+.resetStatesButton {
+  background-color: rgba(255, 251, 0, 0.404) !important;
+  transition: 1s;
+}
+
+.resetStatesButton:hover {
+  background-color: rgb(255, 0, 0) !important;
+}
+
+@keyframes infinite-scrolling {
+  0% {
+  }
+  100% {
+    background-position: 500px 750px;
+  }
+}

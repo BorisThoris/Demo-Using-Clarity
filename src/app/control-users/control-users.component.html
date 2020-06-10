@@ -1,0 +1,94 @@
+<app-alert-comp *ngIf="alertOpen" [message]="alertMessage"></app-alert-comp>
+
+<div class="pageContainer">
+  <div class="pageContent">
+    <form
+      style="display: flex; flex-direction: column;"
+      class="customInputContainerStyle"
+      type="number"
+      required
+    >
+      <label for="basic" class="clr-control-label"
+        >How many users do you want to add ?</label
+      >
+      <input
+        class="clr-input customInputStyle"
+        type="number"
+        name="numberOfUsers"
+        (change)="numberInputUpdate()"
+        [(ngModel)]="numberModal"
+        [disabled]="disabled"
+        required
+        min="1"
+        max="50"
+      />
+
+      <div style="font-size: 80%; color: rgba(128, 128, 128, 0.726);">
+        Count cannot be changed after Wizzard is openned
+      </div>
+    </form>
+
+    <button
+      class="btn btn-primary hoverableButton"
+      (click)="showModal()"
+      [disabled]="numberModalCount > 0 ? false : true"
+      [ngStyle]="{
+        opacity: numberModalCount > 0 ? 1 : 0,
+        height: numberModalCount > 0 ? 'auto' : 0 + 'px'
+      }"
+    >
+      {{ storedUsers ? "Change Users" : "Open User Generation Wizard" }}
+    </button>
+
+    <button
+      class="btn btn-sm resetStatesButton hoverableButton"
+      (click)="clearUsers()"
+      style="margin-top: 10px !important; margin-bottom: 10px !important;"
+      [disabled]="!storedUsers"
+      [ngStyle]="{
+        opacity: storedUsers ? 1 : 0,
+        height: storedUsers ? 'auto' : 0 + 'px'
+      }"
+    >
+      Clear users
+    </button>
+
+    <button
+      class="btn btn-outline hoverableButton"
+      routerLink="home"
+      [disabled]="!storedUsers"
+      [ngStyle]="{
+        opacity: storedUsers ? 1 : 0,
+        height: storedUsers ? 'auto' : 0 + 'px'
+      }"
+    >
+      Go Back To Demo Steps
+    </button>
+  </div>
+
+  <clr-wizard #wizardxl [(clrWizardOpen)]="xlOpen">
+    <clr-wizard-title>XL Wizard (Default)</clr-wizard-title>
+
+    <clr-wizard-button [type]="'cancel'">Cancel</clr-wizard-button>
+    <clr-wizard-button [type]="'previous'">Back</clr-wizard-button>
+    <clr-wizard-button [type]="'next'">Next</clr-wizard-button>
+    <clr-wizard-button [type]="'finish'" (click)="submit()"
+      >Finish Test</clr-wizard-button
+    >
+    <clr-wizard-button (click)="submit()">Skip All</clr-wizard-button>
+
+    <clr-wizard-page *ngFor="let user of users; let idx = index">
+      <form clrForm [formGroup]="reactiveModel">
+        <ng-template clrPageTitle>User</ng-template>
+        <user-form-comp
+          users="users"
+          userName="{{ user.name }}"
+          userAvatarUrl="{{ user.avatarUrl }}"
+          idx="{{ idx }}"
+          (onKeyUpEvent)="onKey($event)"
+          (onSubmitEvent)="submit()"
+        ></user-form-comp>
+      </form>
+    </clr-wizard-page>
+  </clr-wizard>
+</div>

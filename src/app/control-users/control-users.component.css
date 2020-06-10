@@ -1,0 +1,32 @@
+.pageContainer {
+  width: fit-content;
+  background-color: rgba(255, 255, 255, 0.657);
+
+  position: relative;
+
+  margin: auto;
+  margin-top: 20px;
+
+  padding: 2%;
+
+  border-radius: 2%;
+}
+
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  transition: 20s;
+}
+
+.customInputStyle {
+  width: 100%;
+  padding: 0px !important;
+}
+
+.customInputContainerStyle {
+  box-sizing: content-box !important;
+
+  margin-bottom: 10px;
+}

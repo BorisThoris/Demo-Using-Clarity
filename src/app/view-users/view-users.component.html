@@ -1,0 +1,30 @@
+<div class="pageContainer">
+  <div class="pageContent">
+    <button
+      class="btn btn-outline hoverableButton"
+      style="margin-bottom: 50px !important;"
+      routerLink="home"
+    >
+      Go Back To Demo Steps
+    </button>
+
+    <div class="titleDiv">Your Users</div>
+    <div class="subtitleDiv">Delete User By Clicking</div>
+    <div class="usersContainer">
+      <div class="clr-row" *ngFor="let user of users; let idx = index">
+        <a class="card clickable" (click)="deleteUser(idx)">
+          <div class="card-img">
+            <img
+              src="{{ user.avatarUrl }}"
+              (error)="updateUrl($event)"
+              style="width: 400px; height: 200px;"
+            />
+          </div>
+          <div class="card-block">
+            <p class="card-text">{{ idx }} {{ user.name }}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
