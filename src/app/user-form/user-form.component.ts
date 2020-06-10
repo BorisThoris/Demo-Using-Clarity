@@ -24,16 +24,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
       <label for="example" class="clr-control-label clr-col-12 clr-col-md-2"
         >Avatar Uri:
       </label>
-      <div class="clr-control-container clr-col-12 clr-col-md-10">
-        <div class="clr-input-wrapper">
-          <input
-            class="clr-input"
-            type="text"
-            [value]="userAvatarUrl"
-            #avatarUrl
-            (keyup)="update(avatarUrl.value, 'avatarUrl', idx)"
-          />
-        </div>
+
+      <div class="clr-input-wrapper">
+        <input
+          class="clr-input"
+          type="text"
+          [value]="userAvatarUrl"
+          #avatarUrl
+          (keyup)="update(avatarUrl.value, 'avatarUrl', idx)"
+        />
       </div>
     </div>
   `,

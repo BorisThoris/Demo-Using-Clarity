@@ -9,8 +9,13 @@
     </button>
 
     <div class="titleDiv">Your Users</div>
-    <div class="subtitleDiv">Delete User By Clicking</div>
-    <div class="usersContainer">
+    <div class="subtitleDiv" *ngIf="users && users.length > 0">
+      Delete User By Clicking
+    </div>
+    <div class="subtitleDiv" *ngIf="users && users.length <= 0">
+      No users left
+    </div>
+    <div class="usersContainer" *ngIf="users">
       <div class="clr-row" *ngFor="let user of users; let idx = index">
         <a class="card clickable" (click)="deleteUser(idx)">
           <div class="card-img">
@@ -21,7 +26,7 @@
             />
           </div>
           <div class="card-block">
-            <p class="card-text">{{ idx }} {{ user.name }}</p>
+            <p class="card-text">{{ user.name }}</p>
           </div>
         </a>
       </div>

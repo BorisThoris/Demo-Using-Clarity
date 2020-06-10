@@ -64,10 +64,17 @@ export class ControlUsersComponent implements OnInit {
     this.disabled = true;
     this.xlOpen = true;
 
-    this.begginingUsers = new Array(NumberOfUsers).fill({
-      name: 'Test',
-      avatarUrl: 'Test',
-    });
+    // this.begginingUsers = new Array(NumberOfUsers).fill({
+    //   name: 'Test',
+    //   avatarUrl: 'Test',
+    // });
+    var tempArr = [];
+    for (var i = 1; i <= NumberOfUsers; i++) {
+      console.log('lol');
+      tempArr.push({ name: `User ${i}`, avatarUrl: '' });
+    }
+
+    this.begginingUsers = tempArr;
 
     this.users = this.begginingUsers.map((obj) => ({ ...obj }));
 

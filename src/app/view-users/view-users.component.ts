@@ -17,8 +17,10 @@ export class ViewUsersComponent implements OnInit {
       this.router.navigate([`/control-users`]);
       alert('no users created');
     }
-    console.log(this.users);
+    console.log(this.users.length);
   }
+
+  ngAfterViewChecked() {}
 
   updateUrl(event): void {
     console.log(event.target.src);
