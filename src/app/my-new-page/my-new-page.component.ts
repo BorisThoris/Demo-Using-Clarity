@@ -59,7 +59,6 @@ export class MyNewPageComponent implements OnInit {
   }
 
   getCircles(): void {
-    console.log('gettingCircles');
     this.tempCircles = this.begginingCircles.map((obj) => ({ ...obj }));
     localStorage.setItem('circles', JSON.stringify(this.tempCircles));
   }
